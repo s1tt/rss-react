@@ -1,0 +1,19 @@
+.beer-card {
+  /* border: 1px solid black; */
+  width: 320px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.img-wrapper {
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(190, 188, 188);
+  border-radius: 15px;
+  padding: 5px;
+}
+
+.img {
+  height: 100%;
+}
