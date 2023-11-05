@@ -1,14 +1,17 @@
-import { Component } from 'react';
-import classes from './Loader.module.css';
+import cn from 'classnames';
+import { FC } from 'react';
+import styles from './Loader.module.css';
 
-class Loader extends Component<Record<never, never>, Record<never, never>> {
-  render() {
-    return (
-      <>
-        <div className={classes.loader}></div>
-      </>
-    );
-  }
-}
+type Loader = {
+  className?: string;
+};
+
+const Loader: FC<Loader> = ({ className }) => {
+  return (
+    <div className={cn(styles.wrapper, className)}>
+      <div className={styles.loader}></div>
+    </div>
+  );
+};
 
 export default Loader;

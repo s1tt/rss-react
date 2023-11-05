@@ -1,0 +1,33 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.beers {
+  display: flex;
+}
+
+.content {
+  flex: 1;
+  position: relative;
+}
+
+.inactive::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* background-color: rgba(0, 0, 0, 0.2); */
+  /* opacity: 0.4; */
+}

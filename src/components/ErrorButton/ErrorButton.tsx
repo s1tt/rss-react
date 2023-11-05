@@ -1,26 +1,21 @@
-import { Component } from 'react';
+import { FC, useState } from 'react';
 
-class ErrorButton extends Component<
-  Record<never, never>,
-  { newError: boolean }
-> {
-  constructor(props: Record<never, never>) {
-    super(props);
-    this.state = {
-      newError: false,
-    };
-  }
+const ErrorButton: FC = () => {
+  const [neError, setNewError] = useState<boolean>(false);
 
-  handleClick = (): void => {
-    this.setState({ newError: true });
+  const handleClick = (): void => {
+    setNewError(true);
   };
 
-  render() {
-    if (this.state.newError) {
-      throw new Error('I crashed!');
-    }
-    return <button onClick={this.handleClick}>Generate an error</button>;
+  if (neError) {
+    throw new Error('I crashed!');
   }
-}
+
+  return (
+    <button onClick={handleClick} style={{ position: 'absolute', right: '0' }}>
+      Generate an error
+    </button>
+  );
+};
 
 export default ErrorButton;

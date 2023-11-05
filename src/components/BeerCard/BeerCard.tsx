@@ -1,26 +1,43 @@
-import { Component } from 'react';
-import classes from './BeerCard.module.css';
+import cn from 'classnames';
+import { FC } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import styles from './BeerCard.module.css';
 import { BeerCardProps } from './BeerCard.props';
-import { BeerCardState } from './BeerCard.state';
 
-export default class BeerCard extends Component<BeerCardProps, BeerCardState> {
-  render() {
-    return (
-      <article className={classes['beer-card']}>
-        <div className={classes['img-wrapper']}>
-          <img
-            className={classes.img}
-            src={this.props.img}
-            alt={this.props.title}
-          />
+const BeerCard: FC<BeerCardProps> = ({
+  id,
+  title,
+  img,
+  description,
+  setIsOutletOpened,
+  isOutletOpened,
+}) => {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const onClick = () => {
+    setIsOutletOpened(true);
+    searchParams.set('beer', id.toString());
+    setSearchParams(searchParams);
+  };
+
+  return (
+    <article
+      className={cn(styles['beer-card'], {
+        [styles.inactive]: isOutletOpened,
+      })}
+      onClick={onClick}
+    >
+      <div className={styles['beer-card-wrapper']}>
+        <div className={styles['img-wrapper']}>
+          <img className={styles.img} src={img} alt={title} />
         </div>
-        <h2>{this.props.title}</h2>
-        <div>
-          <p>ABV: {this.props.abv}</p>
-          <p>IBU: {this.props.ibu}</p>
-          <p>{this.props.description}</p>
+        <div className={styles.info}>
+          <h2 className={styles.title}>{title}</h2>
+          <p className={styles.description}>{description}</p>
         </div>
-      </article>
-    );
-  }
-}
+      </div>
+    </article>
+  );
+};
+
+export default BeerCard;

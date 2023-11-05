@@ -1,6 +1,12 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
 .loader {
-  align-self: center;
-  margin: auto 0;
+  margin: 0;
   border: 10px solid #f3f3f3;
   border-top: 10px solid #455b69;
   border-radius: 50%;

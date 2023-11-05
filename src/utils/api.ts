@@ -21,11 +21,16 @@ async function getInitialBeers() {
 }
 
 async function getBeersByName(request: string) {
-  const beerName: string = request.trim().replace(' ', '_');
   const response = await fetch(
-    `https://api.punkapi.com/v2/beers?beer_name=${beerName}`
+    // `https://api.punkapi.com/v2/beers?beer_name=${beerName}`
+    `https://api.punkapi.com/v2/beers?beer_name=${request}`
   );
   return checkResponse(response);
 }
 
-export { getBeersByName, getInitialBeers };
+async function getBeerById(id: number) {
+  const response = await fetch(`https://api.punkapi.com/v2/beers/${id}`);
+  return checkResponse(response);
+}
+
+export { getBeerById, getBeersByName, getInitialBeers };

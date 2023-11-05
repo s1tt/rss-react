@@ -1,5 +1,25 @@
 .beer-card {
-  /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.beer-card:hover {
+  cursor: pointer;
+  box-shadow:
+    rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px,
+    rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px,
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.beer-card-wrapper {
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
   width: 320px;
   padding: 20px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -16,4 +36,39 @@
 
 .img {
   height: 100%;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  /* height: 100%; */
+}
+
+.description {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.title,
+.description:hover {
+  transition: 0.3s;
+}
+
+.title:hover,
+.description:hover {
+  opacity: 0.6;
+}
+
+.inactive::before {
+  content: '';
+  border-radius: 20px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
 }

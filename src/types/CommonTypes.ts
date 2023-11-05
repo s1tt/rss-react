@@ -40,29 +40,29 @@ export type Beer = {
     };
   };
   ingredients: {
-    malt: [
-      {
-        name: string;
-        amount: {
-          value: number;
-          unit: string;
-        };
-      },
-    ];
-    hops: [
-      {
-        name: string;
-        amount: {
-          value: number;
-          unit: string;
-        };
-        add: string;
-        attribute: string;
-      },
-    ];
+    malt: IHops[];
+    hops: IHops[];
     yeast: string;
   };
   food_pairing: string[];
   brewers_tips: string;
   contributed_by: string;
 };
+
+export interface IMalt {
+  name: string;
+  amount: {
+    value: number;
+    unit: string;
+  };
+}
+
+export interface IHops {
+  name: string;
+  amount: {
+    value: number;
+    unit: string;
+  };
+  add: string;
+  attribute: string;
+}
