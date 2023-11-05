@@ -1,0 +1,64 @@
+.label {
+  align-self: flex-start;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 5px;
+}
+
+p {
+  margin: 0;
+}
+
+.count {
+  font-weight: 700;
+}
+.select {
+  border-radius: 10px;
+  font-size: 1rem;
+  padding: 5px;
+}
+
+.option {
+  cursor: pointer;
+}
+
+.option:disabled {
+  cursor: default;
+  color: rgba(255, 255, 255, 0.3);
+  background-color: #0f0f0f;
+}
+
+.option:checked {
+  background-color: #333333;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.option {
+  padding: 0 30px 0 10px;
+  min-height: 40px;
+  display: flex;
+  align-items: center;
+  background: #333;
+  border-top: #222 solid 1px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  pointer-events: none;
+  order: 2;
+  z-index: 1;
+  transition: background 0.4s ease-in-out;
+  box-sizing: border-box;
+  overflow: hidden;
+  white-space: nowrap;
+  font-size: 20px;
+}
+
+.option:hover {
+  background: #666;
+}
+
+.select:focus .option {
+  position: relative;
+  pointer-events: all;
+}

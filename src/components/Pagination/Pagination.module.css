@@ -1,0 +1,14 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.button:disabled {
+  border: none;
+}
+
+.button:disabled:hover {
+  border: none;
+  cursor: default;
+}
